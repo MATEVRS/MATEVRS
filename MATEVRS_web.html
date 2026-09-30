@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATEVRS</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#07090f;color:#fff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid #202637;background:#090c14;position:sticky;top:0;z-index:5}
+.logo{font-size:24px;font-weight:800}.logo span{color:#168cff}
+nav{display:flex;gap:8px}nav button{background:transparent;border:0;color:#aeb7c9;padding:10px 15px;border-radius:10px;font-size:15px;cursor:pointer}nav button.active,nav button:hover{background:#151c2b;color:#fff}
+main{max-width:900px;margin:auto;padding:24px 18px 80px}.page{display:none}.page.active{display:block}
+h1{font-size:30px;margin:8px 0 20px}.muted{color:#8f9aae}
+.video{height:570px;border-radius:22px;position:relative;overflow:hidden;background:linear-gradient(160deg,#263e65,#111827 52%,#281934);box-shadow:0 15px 45px #0008}.video:after{content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#000d)}
+.scene{position:absolute;inset:0;background:radial-gradient(circle at 72% 28%,#b85896 0 3%,transparent 20%),linear-gradient(#29456d,#10192a 52%,#17151e)}
+.city{position:absolute;bottom:0;width:100%;height:40%;background:repeating-linear-gradient(90deg,#11151e 0 20px,#1e2430 21px 45px)}
+.person{position:absolute;bottom:14%;left:38%;width:24%;height:30%;background:#07090d;border-radius:45% 45% 8% 8%}
+.videoText{position:absolute;z-index:2;bottom:25px;left:25px;right:90px}.videoText p{color:#e6e8ed}.actions{position:absolute;z-index:3;right:20px;bottom:35px;display:grid;gap:18px;text-align:center}.actions div{font-size:22px}.actions small{display:block;font-size:11px;margin-top:3px}
+.card{background:#0f1420;border:1px solid #20283a;border-radius:16px;padding:16px;margin-bottom:10px;display:flex;align-items:center;gap:14px}.avatar{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#168cff,#784cff);font-weight:800}.chat{flex:1}.chat span{color:#8f9aae;font-size:13px}
+.profile{text-align:center;padding:25px}.bigavatar{width:105px;height:105px;border-radius:50%;margin:auto;display:grid;place-items:center;background:linear-gradient(135deg,#168cff,#784cff);font-size:36px;font-weight:800}.stats{display:flex;justify-content:center;gap:45px;margin:22px}.stats b{display:block;font-size:19px}.stats span{font-size:12px;color:#8f9aae}.btn{padding:11px 22px;border:1px solid #2d3b55;background:#121a29;color:#fff;border-radius:11px}.grid{max-width:600px;margin:25px auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px}.tile{aspect-ratio:1;background:linear-gradient(135deg,#19365b,#2b1838);display:grid;place-items:center;color:#aeb7c9}
+@media(max-width:600px){header{padding:0 15px}.logo{font-size:21px}nav button{padding:8px;font-size:13px}.video{height:calc(100vh - 150px);min-height:500px}}
+</style>
+</head>
+<body>
+<header><div class="logo"><span>M</span> MATEVRS</div><nav>
+<button class="active" onclick="go('videos',this)">🎥 Videos</button>
+<button onclick="go('chat',this)">💬 Chat</button>
+<button onclick="go('perfil',this)">👤 Perfil</button>
+</nav></header>
+
+<main>
+<section id="videos" class="page active">
+<h1>Videos</h1>
+<div class="video"><div class="scene"></div><div class="city"></div><div class="person"></div>
+<div class="actions"><div>♡<small>125K</small></div><div>💬<small>3.8K</small></div><div>↗<small>12K</small></div></div>
+<div class="videoText"><b>@matevrs ✓</b><p>La vida es mejor cuando haces lo que te gusta... 🖤</p><span class="muted">♫ sonido original</span></div>
+</div>
+</section>
+
+<section id="chat" class="page">
+<h1>Chat</h1>
+<div class="card"><div class="avatar">S</div><div class="chat"><b>Sofi 💙</b><br><span>Holaa, ¿cómo estás? 👋</span></div><span class="muted">9:41</span></div>
+<div class="card"><div class="avatar">M</div><div class="chat"><b>Mateo</b><br><span>Jajajaj, qué buena onda</span></div><span class="muted">8:27</span></div>
+<div class="card"><div class="avatar">V</div><div class="chat"><b>Valen</b><br><span>Ya llegaste? 😭</span></div><span class="muted">Ayer</span></div>
+</section>
+
+<section id="perfil" class="page">
+<div class="profile"><div class="bigavatar">M</div><h1>Mateo ✓</h1><div class="muted">@matevrs</div><p class="muted">Solo un chico con grandes sueños. ✨</p>
+<div class="stats"><div><b>12</b><span>Siguiendo</span></div><div><b>48.7K</b><span>Seguidores</span></div><div><b>236</b><span>Me gusta</span></div></div><button class="btn">Editar perfil</button>
+<div class="grid"><div class="tile">Video 1</div><div class="tile">Video 2</div><div class="tile">Video 3</div><div class="tile">Video 4</div><div class="tile">Video 5</div><div class="tile">Video 6</div></div></div>
+</section>
+</main>
+<script>
+function go(id,btn){document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');window.scrollTo(0,0)}
+</script>
+</body>
+</html>
